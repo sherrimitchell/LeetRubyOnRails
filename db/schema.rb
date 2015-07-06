@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150706191820) do
   create_table "flights", force: :cascade do |t|
     t.string   "airline"
     t.integer  "flight_number"
-    t.string   "airport_id"
+    t.string   "short_name"
     t.datetime "arrival_time"
     t.string   "term_gate"
     t.datetime "created_at",    null: false
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20150706191820) do
     t.string   "flight_id"
   end
 
-  add_index "flights", ["flight_id"], name: "index_flights_on_flight_id"
 
   create_table "user_flights", force: :cascade do |t|
     t.integer  "user_id"
