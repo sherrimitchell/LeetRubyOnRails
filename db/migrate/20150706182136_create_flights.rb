@@ -3,7 +3,7 @@ class CreateFlights < ActiveRecord::Migration
     create_table :flights do |t|
       t.string :airline
       t.integer :flight_number
-      t.string :airport_id
+      t.string :short_name
       t.datetime :arrival_time
       t.string :term_gate
       
