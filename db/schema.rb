@@ -51,8 +51,11 @@ ActiveRecord::Schema.define(version: 20150707152609) do
     t.string   "email"
     t.string   "password"
     t.string   "access_token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "avatar_url"
+    t.string   "linked_in_url"
+    t.string   "phone_number"
   end
 
 end
