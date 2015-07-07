@@ -1,6 +1,6 @@
 class Flight < ActiveRecord::Base
 
-  belongs_to :airport
-  has_many :users
+  has_many :user_flights
+  has_many :users, through: :user_flights
 
 end
