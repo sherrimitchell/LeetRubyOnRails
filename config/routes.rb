@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   # USER SIGN UP AND LOGIN ROUTES
 
-  post 'users/register', to: 'users#user_register' # register a new leet user 
+  post 'users/register', to: 'users#register' # register a new leet user 
   post 'users/login', to: 'users#login' # user login to leet 
   get '/users', to: 'users#get_users' # get profile information for all users 
   get '/user', to: 'users#get_user' # get profile information for one user 
