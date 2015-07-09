@@ -37,10 +37,10 @@ Rails.application.routes.draw do
  # FLIGHT ROUTES
 
   post 'flights/create', to: 'flights#create_flight' # create a new flight 
-  get 'flight/:id', to: 'flights#lookup_flight' # get information for a flight 
+  get 'flights/:id', to: 'flights#flight' # get information for a flight 
   put 'flight', to: 'flights#update_flight_info' # update flight information for user 
   delete 'flight/:id', to: 'flights#delete_user_flight' # delete flight information for a user 
-  get 'flight/:id', to: 'flights#get_user_flight' # get flight information for a user
+  get 'flights/user', to: 'flights#user_flight' # get flight information for a user
 
  # AIRPORT ROUTES
 
