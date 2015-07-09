@@ -12,7 +12,7 @@ class FlightsController < ApplicationController
 
   end
 
-  def create_flight_number
+  def create_flight
     
   end
 
