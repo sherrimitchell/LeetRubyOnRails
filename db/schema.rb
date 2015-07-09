@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20150707202533) do
   create_table "flights", force: :cascade do |t|
     t.string   "airline"
     t.integer  "flight_number"
-    t.string   "airport_id"
     t.datetime "arrival_time"
     t.string   "term_gate"
     t.datetime "created_at",    null: false
@@ -49,11 +48,14 @@ ActiveRecord::Schema.define(version: 20150707202533) do
     t.string   "email"
     t.string   "password"
     t.string   "access_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "avatar_url"
     t.string   "linked_in_url"
     t.string   "phone_number"
+    t.string   "salt"
+    t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
 end
