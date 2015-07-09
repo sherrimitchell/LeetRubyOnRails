@@ -12,8 +12,8 @@ class FlightsController < ApplicationController
 
   end
 
-  def create_flight
-    params = {airlinename: :2_letter_airline_code flightnumber: :flight_number origincity: :origin_city destcity: :dest_city ETA: :ETA}
+  def create_flight_number
+    
   end
 
   def update_flight_info
