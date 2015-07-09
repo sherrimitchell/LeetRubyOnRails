@@ -11,7 +11,6 @@ class UsersController < ApplicationController
                      avatar_url: params[:avatar_url],
                      linked_in_url: params[:linked_in_url],
                      phone_number: params[:phone_number])
-    binding.pry
     if @user.save
       render 'register.json.jbuilder', status: :created
     else 
@@ -22,7 +21,6 @@ class UsersController < ApplicationController
 
   def login
     passhash = self.password_encryption(params[:password])
-    binding.pry
     @user = User.find_by(user_name: params[:user_name], password: passhash)
     if @user
       render 'login.json.jbuilder', status: :created
