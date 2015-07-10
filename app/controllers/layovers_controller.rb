@@ -2,6 +2,7 @@ class LayoversController < ApplicationController
   before_action :authenticate_with_token!, only: [:get_user, :get_users, :delete_user]
 
   def create
+    passhash = self.password_encryption(params[:password])
     @layover = current_user.layover.new(user_id: params[:user_id],
                                         arrival_time: params[:arrival_time],
                                         dept_time: params[:dept_time],
