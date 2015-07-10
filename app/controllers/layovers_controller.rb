@@ -3,10 +3,13 @@ class LayoversController < ApplicationController
 
   def create
     @layover = current_user.layover.new(user_id: params[:user_id],
-                                      airport_code: params[:airport_code],
-                                      city: params[:city],
-                                      start_time: params[:start_time],
-                                      end_time: params[:end_time])
+                                        arrival_time: params[:arrival_time],
+                                        dept_time: params[:dept_time],
+                                        city: params[:city],
+                                        short_name: params[:short_name],
+                                        display: params[:display],
+                                        start_time: params[:start_time],
+                                        end_time: params[:end_time])
     if @user.save
       render 'register.json.jbuilder', status: :created
     else 
@@ -74,7 +77,7 @@ class LayoversController < ApplicationController
   end
 
   def get_airport_layovers
-    @layovers = Layover.find_by(airport_code: params[:airport_code]).page(params[:page])
+    @layovers = Layover.find_by(short_name: params[:short_name]).page(params[:page])
     if @layovers.any?
       render 'users.json.jbuilder', status: :ok
     else
