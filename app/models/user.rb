@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   has_many :flights
   has_many :user_flights, through: :flights
+  has_many :layovers
   
 
   before_validation :ensure_access_token

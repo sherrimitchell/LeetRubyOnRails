@@ -4,7 +4,7 @@
 
 ## Overview
 
-All access is over HTTPS, and access from the "https://vast-wildwood-6662.herokuapp.com" domain. All data is sent and received as JSON.
+All access is over HTTPS, and access from the "https://floating-garden-2631.herokuapp.com/" domain. All data is sent and received as JSON.
 
 ## Access Token
 

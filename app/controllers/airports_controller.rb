@@ -6,6 +6,7 @@ class AirportsController < ApplicationController
   end
 
   def get_airport
+    airport = Airport.find
 
   end
 

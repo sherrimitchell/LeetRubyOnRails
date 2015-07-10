@@ -1,0 +1,1 @@
+json.partial! 'layovers', layovers: @layovers

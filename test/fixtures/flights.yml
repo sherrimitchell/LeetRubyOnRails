@@ -13,3 +13,13 @@ two:
   arrival_time: 
   term_gate: MyString
   airport_id: MyString
+
+
+ t.string   "airline"
+    t.integer  "flight_number"
+    t.string   "airport_id"
+    t.datetime "arrival_time"
+    t.string   "term_gate"
+    t.string   "flight_id"
+    t.string   "dept_city_id"
+    t.string   "arr_city_id"
