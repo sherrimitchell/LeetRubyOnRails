@@ -1,8 +1,9 @@
 class LayoversController < ApplicationController
-  before_action :authenticate_with_token!, only: [:get_user, :get_users, :delete_user]
+  before_action :authenticate_with_token!, only: [:create, :show, :user_layovers, 
+                                                  :all, :update_layover, :delete_layover,
+                                                  :get_airport_layovers, :get_city_layovers]
 
   def create
-    passhash = self.password_encryption(params[:password])
     @layover = current_user.layover.new(user_id: params[:user_id],
                                         arrival_time: params[:arrival_time],
                                         dept_time: params[:dept_time],
@@ -46,7 +47,6 @@ class LayoversController < ApplicationController
 
   def edit_layover
       @layover = Layover.find_by(id: params[:id])
-      if @user
       render 'login.json.jbuilder', status: :ok
     else 
       render json: { message: 'You must be logged in to edit this information.' },
@@ -67,8 +67,8 @@ class LayoversController < ApplicationController
   end
 
   def delete_layover
-    passhash = self.password_encryption(params[:password])
-    if passhash == current_user.password
+    @layover = Layover.find(params[:id])
+    if @layover.user == current_user
       current_user.layover.destroy
       render json: { message: 'Layover has been deleted'},
         status: :ok
