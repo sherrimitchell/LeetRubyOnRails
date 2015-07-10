@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  arrival_time: 2015-07-10 10:57:35
+  dept_time: 2015-07-10 10:57:35
+  city: MyString
+  short_name: MyString
+
+two:
+  user_id: 1
+  arrival_time: 2015-07-10 10:57:35
+  dept_time: 2015-07-10 10:57:35
+  city: MyString
+  short_name: MyString
