@@ -34,19 +34,34 @@ Rails.application.routes.draw do
   delete '/user', to: 'users#delete_user' # delete a user 
   # put 'user/profile', to: 'users#update_user' # update information for a user
 
+  # LAYOVER ROUTES
+
+  post 'layovers/create', to: 'layovers#create' # create a new layover
+  get 'layovers/show', to: 'layovers#show' # show a layover for the current user
+  get 'layovers/user_layovers', to: 'layovers#user_layovers' # get layovers for a user
+  get 'layovers/all', to: 'layovers#all' # get all layovers
+  get 'layovers/show/edit', to: 'layovers#edit_layover' # edit a layover
+  put 'layovers/update', to: 'layovers#update_layover' # update a layover
+  put 'layovers/delete', to: 'layovers#delete_layover' # delete a layover
+  get 'layovers/all/airport', to: 'layovers#get_airport_layovers' # get all layovers for an airport
+  get 'layovers/all/city', to: 'layovers#get_city_layovers' # get all layovers for a city
+
+
+
+
  # FLIGHT ROUTES
 
-  post 'flights/create', to: 'flights#create_flight' # create a new flight 
-  get 'flights/:id', to: 'flights#flight' # get information for a flight 
-  put 'flight', to: 'flights#update_flight_info' # update flight information for user 
-  delete 'flight/:id', to: 'flights#delete_user_flight' # delete flight information for a user 
-  get 'flights/user', to: 'flights#user_flight' # get flight information for a user
+  # post 'flights/create', to: 'flights#create_flight' # create a new flight 
+  # get 'flights/:id', to: 'flights#flight' # get information for a flight 
+  # put 'flight', to: 'flights#update_flight_info' # update flight information for user 
+  # delete 'flight/:id', to: 'flights#delete_user_flight' # delete flight information for a user 
+  # get 'flights/user', to: 'flights#user_flight' # get flight information for a user
 
  # AIRPORT ROUTES
 
-  post 'airport/create', to: 'airports#add_an_airport' # create a new airport 
-  get 'airport/:id', to: 'airports#get_airport' # get information for an airport 
-  get 'airports/all', to: 'airports#all' # get information for all airports
+  # post 'airport/create', to: 'airports#add_an_airport' # create a new airport 
+  # get 'airport/:id', to: 'airports#get_airport' # get information for an airport 
+  # get 'airports/all', to: 'airports#all' # get information for all airports
   
   # Example resource route with sub-resources:
   #   resources :products do
