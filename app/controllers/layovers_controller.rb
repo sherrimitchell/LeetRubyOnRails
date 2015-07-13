@@ -55,7 +55,7 @@ class LayoversController < ApplicationController
   end
 
   def update_layover
-    @layover = Layover.find(params[:id])
+    @layover = Layover.find_by(params[:id])
     if @layover.user == current_user
       @layover.update
       render 'login.json.jbuilder', status: :ok
@@ -67,18 +67,18 @@ class LayoversController < ApplicationController
   end
 
   def delete_layover
-    @layover = Layover.find(params[:id])
+    @layover = Layover.find_by(params[:id])
     if @layover.user == current_user
       current_user.layover.destroy
       render json: { message: 'Layover has been deleted'},
         status: :ok
     else
-      render json: { message: 'Password you supplied is not correct' }
+      render json: { message: 'The password you supplied is not correct' }
     end
   end
 
   def get_airport_layovers
-    @layovers = Layover.find_by(short_name: params[:short_name]).page(params[:page])
+    @layovers = Layover.find_by_by(short_name: params[:short_name]).page(params[:page])
     if @layovers.any?
       render 'users.json.jbuilder', status: :ok
     else
