@@ -4,7 +4,7 @@ class LayoversController < ApplicationController
                                                   :get_airport_layovers, :get_city_layovers]
 
   def create
-    @layover = current_user.layovers.new(user_id: params[:user_id], 
+    @layover = current_user.layovers.new(user_id: current_user.id, 
                                         arrival_time: params[:arrival_time],
                                         dept_time: params[:dept_time],
                                         city: params[:city],
@@ -25,7 +25,7 @@ class LayoversController < ApplicationController
 
   def current_user_layovers
     @layovers = current_user.layovers.order(created_at: :desc).page(params[:page])
-    if Layover?.any
+    if @layovers.any?
       render 'user_layovers.json.jbuilder', status: :ok
     else
       render json: { message: 'There are no layovers to display.' },
@@ -35,20 +35,13 @@ class LayoversController < ApplicationController
 
   def user_layover
     @layover = Layover.find_by( user_id: params[:user_id])
-     if @ayover.any?
+     if @layover.any?
       render 'user_layover.json.jbuilder', status: :ok
     else
       render json: { message: 'There are no layovers to display.' },
         status: :unprocessable_entity
     end
   end
-
-# arrival_overlaps = Layover.where(short_name: @layover.short_name).
-#       where("arrival_time <= ? AND dept_time >= ?",
-#         @layover.arrival_time, @layover.arrival_time + 2.hours)
-
-# ("created_at >= :start_date AND created_at <= :end_date",
-#   {start_date: params[:start_date], end_date: params[:end_date]})
 
   def user_airport
     @layovers = Layover.where("user_id = ? AND city = ? AND short_name = ?", params[:user_id],  params[:city],
@@ -64,7 +57,7 @@ class LayoversController < ApplicationController
 
   def user_layovers_all
     @layovers = Layover.find_by( user_id: params[:user_id])
-     if layovers.any?
+     if @layovers.any?
       render 'user_layovers.json.jbuilder', status: :ok
     else
       render json: { message: 'There are no layovers to display.' },
