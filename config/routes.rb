@@ -37,14 +37,23 @@ Rails.application.routes.draw do
   # LAYOVER ROUTES
 
   post 'layovers/create', to: 'layovers#create' # create a new layover
-  get 'layovers/show', to: 'layovers#show' # show a layover for the current user
-  get 'layovers/user_layovers', to: 'layovers#user_layovers' # get layovers for a user
+  get 'layover/:id', to: 'layovers#show' # show layover for the current user 
+  get 'layovers/user/layovers', to: 'layovers#current_user_layovers' # get all layovers for the current user
+  get 'layovers/user/layover', to: 'layovers#user_layover' # get a layover for a user
+
+  get 'layovers/user/airport', to: 'layovers#user_airport' # get all layovers for a user
+  get 'layovers/user/all', to: 'layovers#all' # get all layovers
+
   get 'layovers/all', to: 'layovers#all' # get all layovers
-  get 'layovers/show/edit', to: 'layovers#edit_layover' # edit a layover
+  get 'layovers/airport/all', to: 'layovers#airport_all' # get all layovers for an airport
+  get 'layovers/arrival/all', to: 'layovers#arrival_all' # get all layovers by arrival date
+  get 'layovers/airport/date', to: 'layovers#airport_date' # get all layovers for an airport by date
+
+  get 'layovers/edit', to: 'layovers#edit_layover' # edit a layover
   put 'layovers/update', to: 'layovers#update_layover' # update a layover
   put 'layovers/delete', to: 'layovers#delete_layover' # delete a layover
-  get 'layovers/all/airport', to: 'layovers#get_airport_layovers' # get all layovers for an airport
-  get 'layovers/all/city', to: 'layovers#get_city_layovers' # get all layovers for a city
+  
+  
 
 
 
