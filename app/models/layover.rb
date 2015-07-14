@@ -10,7 +10,7 @@ def buddies
       where("arrival_time <= ? AND dept_time >= ?",
         @layover.dept_time - 2.hours, @layover.dept_time)
     @overlaps = (arrival_overlaps + departure_overlaps).uniq
-    if @overlaps = nil
+    if @overlaps == nil
       render json: { message: 'There is no one available to meetup.' },
         status: :no_content
     else
