@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   put 'layovers/update', to: 'layovers#update_layover' # update a layover
   put 'layovers/delete', to: 'layovers#delete_layover' # delete a layover
   
+  get 'layovers/layover_meetup', to: 'layovers#layover_meetup' # get possible meetups
+  
   
 
 

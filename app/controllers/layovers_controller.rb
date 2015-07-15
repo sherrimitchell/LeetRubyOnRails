@@ -46,7 +46,6 @@ class LayoversController < ApplicationController
   def user_airport
     @layovers = Layover.where("user_id = ? AND city = ? AND short_name = ?", params[:user_id],  params[:city],
                                        params[:short_name])
-    binding.pry
      if @layovers.any?
       render 'user_layovers.json.jbuilder', status: :ok
     else
@@ -112,6 +111,17 @@ class LayoversController < ApplicationController
         status: :unprocessable_entity
     end
   end
+
+  def layover_meetup
+    layover = Layover.find(params[:id])
+    @layovers = layover.meetup
+    if @layovers.any?
+      render 'all.json.jbuilder', status: :ok
+    else
+      render json: { message: 'There is no one available to meetup.' },
+        status: :no_content
+    end
+  end  
 
   def delete_layover
     @layover = Layover.find(params[:id])
