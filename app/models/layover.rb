@@ -1,7 +1,7 @@
 class Layover < ActiveRecord::Base
   belongs_to :user
 
-  def self.meetup
+  def meetup
     arrival_overlaps = Layover.where(short_name: self.short_name).
       where("arrival_time <= ? AND dept_time >= ?",
         self.arrival_time, self.arrival_time + 2.hours)
