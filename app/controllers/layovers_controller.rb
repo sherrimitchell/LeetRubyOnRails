@@ -46,7 +46,6 @@ class LayoversController < ApplicationController
   def user_airport
     @layovers = Layover.where("user_id = ? AND city = ? AND short_name = ?", params[:user_id],  params[:city],
                                        params[:short_name])
-    binding.pry
      if @layovers.any?
       render 'user_layovers.json.jbuilder', status: :ok
     else
