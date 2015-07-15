@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Specifying ruby 2.1.5 for Heroku
+ruby "2.1.5"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -36,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #use Kaminari for pagination
 gem 'kaminari'
+gem 'rack-cors', require: 'rack/cors'
+# Use Puma as the server to go extra fast! (And cause Heroku likes it)
+gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,16 +53,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
-
-  # Specifying ruby 2.1.5 for Heroku
-  ruby "2.1.5"
-
-  # Use Puma as the server for Heroku
-  gem 'puma'
 end
 
 group :production do
-  gem 'rack-cors', require: 'rack/cors'
   gem 'rails_12factor'
 end
 
