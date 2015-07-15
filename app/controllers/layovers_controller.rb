@@ -112,6 +112,17 @@ class LayoversController < ApplicationController
     end
   end
 
+  def layover_meetup
+    layover = Layover.find(params[:id])
+    @layovers = layover.meetup
+    @layovers.any?
+    render 'all.json.jbuilder', status: :ok
+    #else
+     # render json: { message: 'There is no one available to meetup.' },
+      #  status: :no_content
+    #end
+  end  
+
   def delete_layover
     @layover = Layover.find(params[:id])
     if @layover.user == current_user
