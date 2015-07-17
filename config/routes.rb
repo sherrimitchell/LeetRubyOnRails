@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   # LAYOVER ROUTES
 
   post 'layovers/create', to: 'layovers#create' # create a new layover
-  get 'layover/:id', to: 'layovers#show' # show layover for the current user 
+  get 'layovers/user/show', to: 'layovers#show' # show layover for the current user 
   get 'layovers/user/layovers', to: 'layovers#current_user_layovers' # get all layovers for the current user
   get 'layovers/user/layover', to: 'layovers#user_layover' # get a layover for a user
 
@@ -49,9 +49,9 @@ Rails.application.routes.draw do
   get 'layovers/arrival/all', to: 'layovers#arrival_all' # get all layovers by arrival date
   get 'layovers/airport/date', to: 'layovers#airport_date' # get all layovers for an airport by date
 
-  get 'layovers/edit', to: 'layovers#edit_layover' # edit a layover
-  put 'layovers/update', to: 'layovers#update_layover' # update a layover
-  put 'layovers/delete', to: 'layovers#delete_layover' # delete a layover
+  get 'layovers/:id/edit', to: 'layovers#edit_layover' # edit a layover
+  put 'layovers/:id/update', to: 'layovers#update_layover' # update a layover
+  put 'layovers/:id/delete', to: 'layovers#delete_layover' # delete a layover
   
   get 'layovers/:id/layover_meetup', to: 'layovers#layover_meetup' # get possible meetups
   
