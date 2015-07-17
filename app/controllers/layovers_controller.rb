@@ -96,16 +96,20 @@ class LayoversController < ApplicationController
     end
   end
 
-  def edit_layover
-      @layover = Layover.find(params[:id])
-      render 'show.json.jbuilder', status: :ok
-  end
+  # def edit_layover
+  #     @layover = Layover.find(params[:id])
+  #     render 'show.json.jbuilder', status: :ok
+  # end
 
   def update_layover
     @layover = Layover.find(params[:id])
     if @layover.user == current_user
-      @layover.update
-      render '.json.jbuilder', status: :ok
+      @layover.update(arrival_time: params[:arrival_time],
+                      dept_time: params[:dept_time],
+                      city: params[:city],
+                      short_name: params[:short_name],
+                      display: params[:display])
+      render 'show.json.jbuilder', status: :ok
     else
       render json: { message: 'You must be logged in to edit this information.' },
         status: :unprocessable_entity

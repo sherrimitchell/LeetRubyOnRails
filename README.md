@@ -235,3 +235,204 @@ Response Status Code: 401
   "message": "Password you supplied is not correct"
 }
 ```
+
+##Layover info
+
+### Create a Layover
+
+Access-Token:          Required (Current User Logged In)
+
+Path:      `POST '/layovers/create'`
+
+Parameters:
+
+| Name            | Type           | Description
+|-----------------|----------------|-------------
+|"arrival_time" | "datetime"       | "2015-07-24T13:45:00"
+|"dept_time"    | "datetime"       | "2015-07-24T17:00:00" 
+|"city"          | "string"        | "Atlanta"
+|"short_name" | "string"           | "ATL"
+|"display"        | "boolean"      |"true"
+
+Example data successful response:
+```json
+{
+  "id": 13,
+  "layover_info": {
+    "arrival_time": "2015-07-16T12:29:06.000Z",
+    "departure_time": "2015-07-16T17:29:06.000Z",
+    "city": "Atlanta",
+    "airport": "ATL",
+    "display_user_info": true,
+    "created_at": "2015-07-16T17:04:44.926Z",
+    "updated_at": "2015-07-16T17:04:44.926Z"
+  },
+  "creator": {
+    "user_name": "the",
+    "first_name": "iron",
+    "last_name": "yard",
+    "email": "the@iron.yard"
+  }
+}
+
+Response Status Code: 201 Created
+```
+##User Layovers Show
+
+Access-Token:          Required(Current User Logged In)
+
+Path:         `GET  '/layovers/user/layover'`
+
+Example data successful response:
+```json
+[
+  {
+    "id": 17,
+    "layover_info": {
+      "arrival_time": "2015-07-25T13:54:00.000Z",
+      "departure_time": "2015-07-25T17:13:00.000Z",
+      "city": "Ft. Worth",
+      "airport": "DFW",
+      "display_user_info": true,
+      "created_at": "2015-07-16T18:10:32.950Z",
+      "updated_at": "2015-07-16T18:10:32.950Z"
+    },
+    "creator": {
+      "user_name": "texas",
+      "first_name": "grape",
+      "last_name": "vine",
+      "email": "texas@grape.vine"
+    }
+  },
+  {
+    "id": 15,
+    "layover_info": {
+      "arrival_time": "2015-07-25T13:00:00.000Z",
+      "departure_time": null,
+      "city": "Ft. Worth",
+      "airport": "DFW",
+      "display_user_info": true,
+      "created_at": "2015-07-25T17:56:39.143Z",
+      "updated_at": "2015-07-25T17:56:39.143Z"
+    },
+    "creator": {
+      "user_name": "texas",
+      "first_name": "grape",
+      "last_name": "vine",
+      "email": "texas@grape.vine"
+    }
+  }
+  ]
+
+Response Status Code: 200 OK
+```
+
+##Layover Update
+
+Access-Token:          Required(Current User Logged In)
+
+Path:         `PUT  '/layovers/:id/update'`
+
+Parameters:
+
+| Name            | Type        | Description
+|-----------------|-------------|-------------
+| layover id      | integer     |assigned at creation                      
+
+Example data successful response:
+```json
+ "id": 17,
+    "layover_info": {
+      "arrival_time": "2015-07-25T14:10:00.000Z",
+      "departure_time": "2015-07-25T17:13:00.000Z",
+      "city": "Ft. Worth",
+      "airport": "DFW",
+      "display_user_info": true,
+      "created_at": "2015-07-16T18:10:32.950Z",
+      "updated_at": "2015-07-16T18:10:32.950Z"
+    },
+    "creator": {
+      "user_name": "texas",
+      "first_name": "grape",
+      "last_name": "vine",
+      "email": "texas@grape.vine"
+      
+Response Status Code: 200 OK
+```
+## Delete A Layover
+
+Access-Token:          Required(Current User Logged In)
+
+Path:         `PUT  '/layovers/:id/delete'`
+
+Parameters:
+
+| Name            | Type        | Description
+|-----------------|-------------|-------------
+| layover id      | integer     |assigned at creation                      
+
+Example data successful response:
+```json
+{
+  "message": "Layover has been deleted"
+}
+ Response Status Code: 200 OK
+ 
+ Example data unsuccessful response:
+ {
+  "message": "Nothing at /layovers/17/delete"
+  }
+Response Status Code: 404 Not Found
+```
+## Find a possible meetup
+
+Access-Token:          Required(Current User Logged In)
+
+Path:           `GET '/layovers/:id'`
+
+Parameters:
+
+| Name               | Type        | Description
+|--------------------|-------------|-------------
+|id of trip you want | integer     |assigned at creation  
+
+Example data successful response:
+```json
+ {
+    "id": 10,
+    "layover_info": {
+      "arrival_time": "2015-07-16T12:29:06.000Z",
+      "departure_time": "2015-07-16T17:29:06.000Z",
+      "city": "Atlanta",
+      "airport": "ATL",
+      "display_user_info": true,
+      "created_at": "2015-07-15T19:54:55.739Z",
+      "updated_at": "2015-07-15T19:54:55.739Z"
+    },
+    "creator": {
+      "user_name": "the",
+      "first_name": "iron",
+      "last_name": "yard",
+      "email": "the@iron.yard"
+    }
+  },
+  {
+    "id": 7,
+    "layover_info": {
+      "arrival_time": "2015-07-16T13:45:06.000Z",
+      "departure_time": "2015-07-16T17:29:06.000Z",
+      "city": "Atlanta",
+      "airport": "ATL",
+      "display_user_info": true,
+      "created_at": "2015-07-15T19:38:43.974Z",
+      "updated_at": "2015-07-15T19:38:43.974Z"
+    },
+    "creator": {
+      "user_name": "our",
+      "first_name": "leet",
+      "last_name": "app",
+      "email": "our@leet.app"
+    }
+  }
+  Response Status Code: 200 OK
+```
