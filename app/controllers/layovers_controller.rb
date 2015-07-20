@@ -35,12 +35,12 @@ class LayoversController < ApplicationController
   end
 
   def user_layover
-    @layover = Layover.find_by( user_id: params[:user_id])
+    @layover = Layover.find_by( user_id: current_user.id)
      if @layover
       render 'user_layover.json.jbuilder', status: :ok
     else
       render json: { message: 'There are no layovers to display.' },
-        status: :unprocessable_entity
+        status: :no_content
     end
   end
 

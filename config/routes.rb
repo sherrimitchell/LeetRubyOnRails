@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   post 'layovers/create', to: 'layovers#create' # create a new layover
   get 'layovers/user/show', to: 'layovers#show' # show layover for the current user 
   get 'layovers/user/layovers', to: 'layovers#current_user_layovers' # get all layovers for the current user
-  get 'layovers/:user_id/layover', to: 'layovers#user_layover' # get a layover for a user
+  get 'layovers/user/layover', to: 'layovers#user_layover' # get a layover for a user
 
   get 'layovers/user/airport', to: 'layovers#user_airport' # get all layovers for a user
   get 'layovers/user/all', to: 'layovers#all' # get all layovers
