@@ -1,10 +1,25 @@
 # LeetRubyOnRails 
 
+
+1. [USER](#sign-up-login-users-info-and-delete-user)
+   - [REGISTER](#new-user-registration)
+   - [LOGIN](#user-login)
+   - [LIST USERS](#get-all-users)
+   - [LIST USER INFO](#get-current-user-info)
+   - [DELETE CURRENT USER](#delete-current-user)
+2. [LAYOVER](#layover-info)
+   - [CREATE A LAYOVER](#create-a-layover)
+   - [USER LAYOVERS SHOW](#user-layovers-show)
+   - [LAYOVER UPDATE](#layover-update)
+   - [DELETE A LAYOVER](#delete-a-layover)
+3. [FIND A POSSIBLE MEETUP](#find-a-possible-meetup)
+  
+
 # API
 
 ## Overview
 
-All access is over HTTPS, and access from the "https://floating-garden-2631.herokuapp.com/" domain. All data is sent and received as JSON.
+All access is over HTTPS, and access from the "https://leetapp.herokuapp.com/" domain. All data is sent and received as JSON.
 
 ## Access Token
 
@@ -37,7 +52,9 @@ Parameters:
 | first_name | string | first name of user to be created         |
 | last_name  | string | last name of user to be created          |
 | email      | string | email of user to be created              |
-
+```
+Upon successful registration, a welcome email will be sent to the user.
+```
 
 Example data successful response:
 
@@ -253,6 +270,9 @@ Parameters:
 |"city"          | "string"        | "Atlanta"
 |"short_name" | "string"           | "ATL"
 |"display"        | "boolean"      |"true"
+```
+Upon successful registration, a welcome email will be sent to the user.
+```
 
 Example data successful response:
 ```json

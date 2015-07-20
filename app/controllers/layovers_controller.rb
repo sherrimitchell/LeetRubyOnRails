@@ -11,9 +11,10 @@ class LayoversController < ApplicationController
                                         short_name: params[:short_name],
                                         display: true)
     if @layover.save
-      render 'create.json.jbuilder', status: :created
+      render 'create.json.jbuilder', status: :created 
+      OurMailer.layover_created_email(current_user).deliver_now
     else 
-      render json: { errors: @user.errors.full_messages },
+      render json: { errors: @layover.errors.full_messages },
       status: :unprocessable_entity
     end
   end
