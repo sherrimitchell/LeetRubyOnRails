@@ -353,7 +353,7 @@ Response Status Code: 200 OK
 
 Access-Token:          Required(Current User Logged In)
 
-Path:         `GET  '/layovers/:user_id/layover'`
+Path:         `GET  '/layovers/user/layovers'`
 
 Example data successful response:
 ```json
