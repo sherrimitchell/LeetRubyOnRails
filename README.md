@@ -10,6 +10,7 @@
 2. [LAYOVER](#layover-info)
    - [CREATE A LAYOVER](#create-a-layover)
    - [USER LAYOVERS SHOW](#user-layovers-show)
+   - [LAYOVERS FOR A USER](#layovers-for-a-user)
    - [LAYOVER UPDATE](#layover-update)
    - [DELETE A LAYOVER](#delete-a-layover)
 3. [FIND A POSSIBLE MEETUP](#find-a-possible-meetup)
@@ -346,6 +347,58 @@ Example data successful response:
 
 Response Status Code: 200 OK
 ```
+
+
+##Layovers For A User
+
+Access-Token:          Required(Current User Logged In)
+
+Path:         `GET  '/layovers/:user_id/layover'`
+
+Example data successful response:
+```json
+[
+  {
+    "id": 17,
+    "layover_info": {
+      "arrival_time": "2015-07-25T13:54:00.000Z",
+      "departure_time": "2015-07-25T17:13:00.000Z",
+      "city": "Ft. Worth",
+      "airport": "DFW",
+      "display_user_info": true,
+      "created_at": "2015-07-16T18:10:32.950Z",
+      "updated_at": "2015-07-16T18:10:32.950Z"
+    },
+    "creator": {
+      "user_name": "texas",
+      "first_name": "grape",
+      "last_name": "vine",
+      "email": "texas@grape.vine"
+    }
+  },
+  {
+    "id": 15,
+    "layover_info": {
+      "arrival_time": "2015-07-25T13:00:00.000Z",
+      "departure_time": null,
+      "city": "Ft. Worth",
+      "airport": "DFW",
+      "display_user_info": true,
+      "created_at": "2015-07-25T17:56:39.143Z",
+      "updated_at": "2015-07-25T17:56:39.143Z"
+    },
+    "creator": {
+      "user_name": "texas",
+      "first_name": "grape",
+      "last_name": "vine",
+      "email": "texas@grape.vine"
+    }
+  }
+  ]
+
+Response Status Code: 200 OK
+```
+
 
 ##Layover Update
 
