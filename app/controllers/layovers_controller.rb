@@ -1,7 +1,5 @@
 class LayoversController < ApplicationController
-  before_action :authenticate_with_token!, only: [:create, :show, :user_layovers, 
-                                                  :all, :update_layover, :delete_layover,
-                                                  :get_airport_layovers, :get_city_layovers]
+  before_action :authenticate_with_token!
 
   def create
     @layover = current_user.layovers.new(user_id: current_user.id, 
