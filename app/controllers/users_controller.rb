@@ -13,6 +13,7 @@ class UsersController < ApplicationController
                      phone_number: params[:phone_number])
     if @user.save
       render 'register.json.jbuilder', status: :created
+      OurMailer.welcome_email(@user)
     else 
       render json: { errors: @user.errors.full_messages },
       status: :unprocessable_entity

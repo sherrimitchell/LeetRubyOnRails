@@ -1,5 +1,5 @@
 class OurMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'noreply@leetapp.herokuapp.com'
  
   def welcome_email(user)
     @user = user
