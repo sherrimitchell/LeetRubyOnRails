@@ -9,6 +9,8 @@ gem 'rails', '4.2.1'
 #gem 'sqlite3'
 # Use postgres as the database for Active Record
 gem 'pg'
+gem "paperclip", "~> 4.3"
+gem 'mandrill-api'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -13,6 +13,7 @@ class UsersController < ApplicationController
                      phone_number: params[:phone_number])
     if @user.save
       render 'register.json.jbuilder', status: :created
+      OurMailer.welcome_email(@user).deliver_now
     else 
       render json: { errors: @user.errors.full_messages },
       status: :unprocessable_entity
@@ -58,7 +59,7 @@ class UsersController < ApplicationController
 
   protected
   def password_encryption(password)
-    if !password.nil? && password != ""
+    if password.present?
       result = Digest::SHA1.hexdigest(password)
     else
       result = nil

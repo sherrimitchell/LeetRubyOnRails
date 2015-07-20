@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_access_token
 
+  def name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def ensure_access_token
     if self.access_token.blank?
       self.access_token = User.generate_token
