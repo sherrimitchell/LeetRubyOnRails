@@ -36,7 +36,7 @@ class LayoversController < ApplicationController
 
   def user_layover
     @layover = Layover.find_by( user_id: params[:user_id])
-     if @layover.any?
+     if @layover
       render 'user_layover.json.jbuilder', status: :ok
     else
       render json: { message: 'There are no layovers to display.' },
