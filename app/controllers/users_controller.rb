@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   def get_user
     @user = current_user
-    render 'user.json.jbuilder', status: :ok
+    render 'users.json.jbuilder', status: :ok
   end
 
   def delete_user
