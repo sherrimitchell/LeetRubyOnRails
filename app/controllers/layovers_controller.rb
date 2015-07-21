@@ -34,8 +34,6 @@ class LayoversController < ApplicationController
 
   def user_layover
     @layover = Layover.find_by( user_id: current_user.id)
-    binding.pry
-
      if @layover
       render 'user_layover.json.jbuilder', status: :ok
     else
