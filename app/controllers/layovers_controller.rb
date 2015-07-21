@@ -33,7 +33,6 @@ class LayoversController < ApplicationController
   end
 
   def user_layover
-    binding.pry
     @layover = Layover.find_by( user_id: current_user.id)
     binding.pry
 
