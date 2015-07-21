@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   post 'users/register', to: 'users#register' # register a new leet user 
   post 'users/login', to: 'users#login' # user login to leet 
   get '/users', to: 'users#get_users' # get profile information for all users 
-  get '/user', to: 'users#get_user' # get profile information for one user 
+  get '/user/:user_id', to: 'users#get_user' # get profile information for one user 
   delete '/user', to: 'users#delete_user' # delete a user 
   # put 'user/profile', to: 'users#update_user' # update information for a user
 

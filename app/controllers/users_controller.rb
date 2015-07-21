@@ -42,8 +42,13 @@ class UsersController < ApplicationController
   end
 
   def get_user
-    @user = current_user
-    render 'users.json.jbuilder', status: :ok
+    @user = User.find_by(id: params[:id])
+    if @user
+       render 'users.json.jbuilder', status: :ok
+    else
+      render json: { message: "There is no user to display with that user id." },
+      status: :not_found
+    end
   end
 
   def delete_user
